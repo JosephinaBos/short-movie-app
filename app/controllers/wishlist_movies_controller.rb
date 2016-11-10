@@ -1,5 +1,6 @@
 class WishlistMoviesController < ApplicationController
   def index
+    @wishlist = WishlistMovie.all
   end
 
   def new
