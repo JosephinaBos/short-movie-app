@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :movies
 
   resources :wishlist_movies, only: [:index, :new, :create, :destroy]
