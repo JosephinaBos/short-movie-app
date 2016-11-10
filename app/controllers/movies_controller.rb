@@ -30,14 +30,17 @@ class MoviesController < ApplicationController
     @movie.destroy
     redirect_to movies_path
   end
+
+  private
+
+  def movie_params
+    params.require(:movies).permit(:name, :director, :duration, :genre, :summary)
+  end
+
+  def find_movie
+    @movie = Movie.find(params[:id])
+  end
+
 end
 
-private
 
-def movie_params
-  params.require(:movies).permit(:name, :director, :duration, :genre, :summary)
-end
-
-def find_movie
-  @movie = Movie.find(params[:id])
-end
