@@ -21,8 +21,8 @@ Movie.create(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, c
 Movie.create(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, ipsam!", genre: "Lorem.", duration: 4, director: "Jaja")
 Movie.create(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, soluta.", genre: "Lorem.", duration: 5, director: "Joos")
 
-Download.create(user: 1, movie: 1)
-Download.create(user: 2, movie: 2)
+Download.create(user_id: 1, movie_id: 1)
+Download.create(user_id: 2, movie_id: 2)
 
-WishlistMovie.create(user: 2, movie: 1)
-WishlistMovie.create(user: 1, movie: 3)
+WishlistMovie.create(user_id: 2, movie_id: 1)
+WishlistMovie.create(user_id: 1, movie_id: 3)
