@@ -1,2 +1,10 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1>Welcome to filmsy</h1>
+<h2>Trending movies</h2>
+
+<ul>
+<% @movies.each do |movie| %>
+  <li><%= movie[:name]%> (<%= movie[:summary]%>)</li>
+  <% end %>
+</ul>
+
+
