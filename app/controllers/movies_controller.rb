@@ -1,9 +1,7 @@
 class MoviesController < ApplicationController
 
-
-
   before_action :find_movie, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @movies = Movie.all  #Get /films
