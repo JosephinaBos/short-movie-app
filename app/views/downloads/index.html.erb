@@ -3,21 +3,17 @@
 
 <ul>
 <% @downloads.each do |download| %>
-  <li><%= download[:name]%> (<%= download[:summary]%>)</li>
+  <li><%= download.movie.name %> <%= download.movie.summary %> </li>
   <% end %>
 </ul>
 
   <div class="btn-delete">
     <div class="btn btn-danger">
-      <%= link_to 'Delete downloaded movie', movies_path(@movie), method: :delete %>
+      <%= link_to 'Delete downloaded movie', movie_downloads_path(params[:movie_id]), method: :delete %>
     </div>
   </div>
 
 
-  <div class="btn-delete">
-    <div class="btn btn-danger">
-      <%= link_to 'Delete all downloaded movies', movies_path(@movie), method: :delete %>
-    </div>
-  </div>
+
 
 

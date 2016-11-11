@@ -4,11 +4,23 @@ class WishlistMoviesController < ApplicationController
   end
 
   def new
+    @wishlist = Wishlist.new
+     redirect_to new_movie_wishlist_movie_path, method: :create
   end
 
   def create
+    @wishlist = WishlistMovie.new
+    @wishlist.movie = Movie.find(params[:movie_id])
+    @wishlist.user = User.find(current_user)
+    if @wishlist.save
+      redirect_to movie_wishlist_movies_path(params[:movie_id])
+    else
+      raise 'error'
+    end
   end
 
   def destroy
+    @wishlist.destroy
+    redirect_to movie_wishlist_movie_path
   end
 end
