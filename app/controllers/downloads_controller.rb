@@ -1,5 +1,6 @@
 class DownloadsController < ApplicationController
   def index
+    @downloads = Download.all
   end
 
   def new
