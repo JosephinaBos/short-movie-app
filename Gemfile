@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 # for user login sign up
 gem 'devise'
+gem 'omniauth-facebook'
 
 # for admin authentication
 gem 'pundit'
