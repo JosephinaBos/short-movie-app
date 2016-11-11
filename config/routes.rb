@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  Rails.application.routes.draw do
+    devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  end
   resources :movies
 
   resources :wishlist_movies, only: [:index, :new, :create, :destroy]
