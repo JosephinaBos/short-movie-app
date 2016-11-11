@@ -4,6 +4,7 @@ ruby '2.3.1'
 # for user login sign up
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'letter_opener', group: :development
 
 # for admin authentication
 gem 'pundit'
