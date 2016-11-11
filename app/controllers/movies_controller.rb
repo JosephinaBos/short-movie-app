@@ -5,13 +5,14 @@ class MoviesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @movies = Movie.all  #Get /films
+    @movies = Movie.all
   end
 
   def show
   end
 
   def new
+    authorize @movie
     @movie = Movie.new
   end
 
@@ -21,6 +22,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
+  authorize @movie
   end
 
   def update
@@ -29,6 +31,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    authorize @movie
     @movie.destroy
     redirect_to movies_path
   end
