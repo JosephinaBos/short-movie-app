@@ -11,9 +11,9 @@ Download.destroy_all
 WishlistMovie.destroy_all
 Movie.destroy_all
 
-u1 = User.create(first_name: "Joos", last_name: "Ephina")
-u2 = User.create(first_name: "Driss", last_name: "Frans")
-u3 = User.create(first_name: "Malou", last_name: "Leiuh")
+u1 = User.create(first_name: "Joos", last_name: "Ephina", email: "hoi@hoi.hoi", password: "secret")
+u2 = User.create(first_name: "Driss", last_name: "Frans", email: "hoi@hoi.hi", password: "secret")
+u3 = User.create(first_name: "Malou", last_name: "Leiuh", email: "hoi@hoi.oi", password: "secret")
 
 m1 = Movie.create(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, exercitationem!", genre: "Lorem.", duration: 1, director: "Tres tres beaucoup de plus")
 m2 = Movie.create(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, adipisci.", genre: "Lorem.", duration: 2, director: "Mais non")
@@ -22,7 +22,9 @@ Movie.create(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, c
 Movie.create(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, soluta.", genre: "Lorem.", duration: 5, director: "Joos")
 
 Download.create(user: u1, movie: m1)
-Download.create(user: u2, movie: m2)
+Download.create(user: u1, movie: m2)
 
-WishlistMovie.create(user: u3, movie: m1)
-WishlistMovie.create(user: u1, movie: m3)
+w1 = WishlistMovie.new(user: u1, movie: m1)
+w2 = WishlistMovie.new(user: u1, movie: m3)
+w1.save!
+w2.save!

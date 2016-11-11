@@ -1,7 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
+# to make a user log in and sign up with email
 gem 'devise'
+
+# to add admin role to users
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 gem 'rails', '5.0.0.1'
 gem 'puma'
