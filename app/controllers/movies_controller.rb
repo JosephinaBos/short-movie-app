@@ -33,6 +33,7 @@ class MoviesController < ApplicationController
   def destroy
     authorize @movie
     @movie.destroy
+    redirect_to movies_path
   end
 
   private
