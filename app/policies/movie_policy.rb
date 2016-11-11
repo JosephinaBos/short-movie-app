@@ -1,15 +1,15 @@
 class MoviePolicy < ApplicationPolicy
 
   def new?
-    user.admin?
+    user && user.admin?
   end
 
   def edit?
-    user.admin?
+    user && user.admin?
   end
 
   def destroy?
-    user.admin?
+    user && user.admin?
   end
 
 end
