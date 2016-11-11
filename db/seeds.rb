@@ -11,9 +11,10 @@ Download.destroy_all
 WishlistMovie.destroy_all
 Movie.destroy_all
 
-u1 = User.create!(first_name: "Joos", last_name: "Ephina", email: "joos@joos.nl", password: "josephina393")
-u2 = User.create!(first_name: "Driss", last_name: "Frans", email: "driss@driss.fr", password: "drissy546tr")
-u3 = User.create!(first_name: "Malou", last_name: "Leiuh", email: "malou@malou.nl", password: "malou5757")
+u1 = User.create!(first_name: "Joos", last_name: "Ephina", email: "jo@os.nl", password: "secret", admin: false)
+u2 = User.create!(first_name: "Driss", last_name: "Frans", email: "dri@ss.nl", password: "secret", admin: false)
+u3 = User.create!(first_name: "Malou", last_name: "Leiuh", email: "ma@lou.nl", password: "secret", admin: true)
+
 
 m1 = Movie.create!(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, exercitationem!", genre: "Lorem.", duration: 1, director: "Tres tres beaucoup de plus")
 m2 = Movie.create!(name: "Lorem ipsum dolor.", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, adipisci.", genre: "Lorem.", duration: 2, director: "Mais non")
