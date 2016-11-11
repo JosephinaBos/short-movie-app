@@ -1,12 +1,20 @@
-<h1>
-  <%= @wishlist.first.user.first_name %>'s wishlist
-</h1>
+<h1>Welcome to your wishlist page</h1>
+<p>This is your wishlist</p>
 
-<% @wishlist.each do |item| %>
-  <h3>
-    <%= item.movie.name %>
-  </h3>
-  <p>
-    <%= item.movie.summary %>
-  </p>
-<% end %>
+
+
+<ul>
+<% @wishlist.each do |wishlist| %>
+  <li><%= wishlist.movie.name %> (<%= wishlist.movie.summary %>)
+      <div class="btn-delete">
+    <div class="btn btn-danger">
+      <%= link_to 'Delete movie from your wishlist', movie_wishlist_movie_path(wishlist, wishlist.movie), method: :delete %>
+    </div>
+  </div>
+  </li>
+
+  <% end %>
+</ul>
+
+
+

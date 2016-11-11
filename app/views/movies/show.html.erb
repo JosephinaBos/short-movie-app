@@ -36,6 +36,20 @@
 
 </div>
 
+ <div class="btn-add">
+    <div class="btn btn-danger">
+      <%= link_to 'Download Movie', movie_downloads_path(@movie), method: :create %>
+    </div>
+  </div>
+
+
+<div class="btn-add">
+    <div class="btn btn-danger">
+      <%= link_to 'Add to wishlist', movie_wishlist_movies_path(@movie), method: :create %>
+    </div>
+  </div>
+
+
 <div class="social-buttons">
   <ul>
     <li><a href="#" target="blank" class="btn"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>

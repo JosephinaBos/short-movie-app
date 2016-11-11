@@ -3,13 +3,18 @@
 
 <ul>
 <% @downloads.each do |download| %>
-  <li><%= download[:name]%> (<%= download[:summary]%>)</li>
+  <li><%= download.movie.name %> <%= download.movie.summary %> </li>
+   <div class="btn-delete">
+    <div class="btn btn-danger">
+      <%= link_to 'Delete downloaded movie', movie_download_path(download.movie, download), method: :delete %>
+    </div>
+  </div>
+
+
   <% end %>
 </ul>
 
-  <div class="btn-delete">
-    <div class="btn btn-danger">
-      <%= link_to 'Delete download', movies_path(@movie), method: :delete %>
-    </div>
-  </div>
+
+
+
 
