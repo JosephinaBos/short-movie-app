@@ -5,13 +5,16 @@
 
 <ul>
 <% @wishlist.each do |wishlist| %>
-  <li><%= wishlist.movie.name %> (<%= wishlist.movie.summary %>)</li>
+  <li><%= wishlist.movie.name %> (<%= wishlist.movie.summary %>)
+      <div class="btn-delete">
+    <div class="btn btn-danger">
+      <%= link_to 'Delete movie from your wishlist', movie_wishlist_movie_path(wishlist, wishlist.movie), method: :delete %>
+    </div>
+  </div>
+  </li>
+
   <% end %>
 </ul>
 
-  <div class="btn-delete">
-    <div class="btn btn-danger">
-      <%= link_to 'Delete movie from your wishlist', movie_wishlist_movie_path(params[:movie_id]), method: :delete %>
-    </div>
-  </div>
+
 

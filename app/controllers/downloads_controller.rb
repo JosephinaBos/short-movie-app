@@ -21,8 +21,9 @@ class DownloadsController < ApplicationController
  end
 
   def destroy
+    @download = Download.find
     @download.destroy
-    redirect_to download_path
+    redirect_to movie_download_path
   end
 
 end
