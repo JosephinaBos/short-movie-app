@@ -2,16 +2,27 @@
   <div class="row">
     <div class="col-sm-6">
       <h1>Welcome to filmsy</h1>
+
+      <% if @q %>
+      <h2>You've searched for <%= @q %></h2>
+      <% else %>
       <h2>Trending movies</h2>
+      <% end %>
 
       <div class="movie-list">
-        <ul>
-          <% @movies.each do |movie| %>
-          <li>
-            <%= link_to "#{movie.name}", movie_path(movie) %>
-          </li>
-          <% end %>
-        </ul>
+
+          <% if @movies %>
+          <ul>
+            <% @movies.each do |movie| %>
+            <li>
+              <%= link_to "#{movie.name}", movie_path(movie) %>
+            </li>
+            <% end %>
+          </ul>
+          <% else %>
+          <% raise "error" %>
+        <%= "No results" %>
+        <% end %>
       </div>
     </div>
   </div>
