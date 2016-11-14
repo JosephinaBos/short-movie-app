@@ -13,12 +13,16 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @genres_and_ids = Genre.pluck(:name, :id)
     authorize @movie
   end
 
   def create
-    @movie = Movie.create(movie_params)
-    redirect_to movie_path(@movie)
+    @movie = Movie.new(movie_params)
+    @movie.genres << Genre.find(genre_params[:genres])
+    @movie.save
+
+    redirect_to movies_path
   end
 
   def edit
@@ -39,7 +43,11 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movies).permit(:name, :director, :duration, :genre, :summary)
+    params.require(:movie).permit(:name, :director, :duration, :summary)
+  end
+
+   def genre_params
+    params.require(:movie).permit(:genres)
   end
 
   def find_movie
