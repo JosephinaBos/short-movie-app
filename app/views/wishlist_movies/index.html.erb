@@ -8,7 +8,7 @@
   <li><%= wishlist.movie.name %> (<%= wishlist.movie.summary %>)
       <div class="btn-delete">
     <div class="btn btn-danger">
-      <%= link_to 'Delete movie from your wishlist', movie_wishlist_movie_path(wishlist, wishlist.movie), method: :delete %>
+      <%= link_to 'Delete movie from your wishlist', movie_wishlist_movie_path(wishlist.movie, wishlist), method: :delete %>
     </div>
   </div>
   </li>

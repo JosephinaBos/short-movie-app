@@ -3,10 +3,10 @@ class WishlistMoviesController < ApplicationController
     @wishlist = WishlistMovie.all
   end
 
-  def new
-    @wishlist = Wishlist.new
-     redirect_to new_movie_wishlist_movie_path, method: :create
-  end
+  # def new
+  #   @wishlist = Wishlist.new
+  #    redirect_to new_movie_wishlist_movie_path, method: :create
+  # end
 
   def create
     @wishlist = WishlistMovie.new
@@ -20,7 +20,10 @@ class WishlistMoviesController < ApplicationController
   end
 
   def destroy
+    @wishlist = WishlistMovie.find(params[:id])
     @wishlist.destroy
-    redirect_to movie_wishlist_movie_path
+    redirect_to movie_wishlist_movies_path
   end
 end
+
+

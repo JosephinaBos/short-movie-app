@@ -4,10 +4,10 @@ class DownloadsController < ApplicationController
   end
 
 # We are not using this guys
-  def new
-    @download = Download.new
-    redirect_to downloads_path, method: :create
-  end
+  # def new
+  #   @download = Download.new
+  #   redirect_to downloads_path, method: :create
+  # end
 
   def create
     @download = Download.new
@@ -21,9 +21,9 @@ class DownloadsController < ApplicationController
  end
 
   def destroy
-    @download = Download.find
+    @download = Download.find(params[:id])
     @download.destroy
-    redirect_to movie_download_path
+    redirect_to movie_downloads_path
   end
 
 end
