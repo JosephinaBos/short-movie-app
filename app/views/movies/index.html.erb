@@ -1,20 +1,27 @@
 <div class="container">
-<div class="row">
-<div class="col-sm-6">
-<h1>Welcome to filmsy</h1>
-<h2>Trending movies</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Welcome to filmsy</h1>
+      <h2>Trending movies</h2>
 
-<div class="movie-list">
-<ul>
-  <% @movies.each do |movie| %>
-  <li>
-  <%= link_to "#{movie.name}", movie_path(movie) %>
-  </li>
-  <% end %>
-</ul>
-</div>
-</div>
-</div>
+      <div class="movie-list">
+        <ul>
+          <% @movies.each do |movie| %>
+          <li>
+            <%= link_to "#{movie.name}", movie_path(movie) %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="btn-events">
+        <div class="btn btn-danger">
+        <%= link_to "Add a Film", new_movie_path %>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 

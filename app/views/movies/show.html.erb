@@ -5,7 +5,12 @@
 <div class="movie-info">
   <h4><%= "Director: #{@movie.director}" %></h4>
   <p><%= "Duration: #{@movie.duration}" %></p>
-  <p><%= "Genre: #{@movie.genre}" %></p>
+  <p>
+    Genre:
+    <% @movie.genres.each do |genre| %>
+      <%= genre.name %>
+    <%end%>
+  </p>
   <p><%= "Synopsis: #{@movie.summary}" %></p>
 </div>
 

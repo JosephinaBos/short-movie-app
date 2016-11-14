@@ -10,6 +10,7 @@ User.destroy_all
 Download.destroy_all
 WishlistMovie.destroy_all
 Movie.destroy_all
+Genre.destroy_all
 
 u1 = User.create!(first_name: "Joos", last_name: "Ephina", email: "jo@os.nl", password: "secret", admin: false)
 u2 = User.create!(first_name: "Driss", last_name: "Frans", email: "dri@ss.nl", password: "secret", admin: false)
@@ -20,6 +21,10 @@ m2 = Movie.create!(name: "The Matrix", summary: "Lorem ipsum dolor sit amet, con
 m3 = Movie.create!(name: "Intouchables", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, adipisci.", duration: 3, director: "Vive")
 m4 = Movie.create!(name: "Lion King", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, ipsam!", duration: 4, director: "Jaja")
 m5 = Movie.create!(name: "Mama Mia", summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, soluta.", duration: 5, director: "Joos")
+
+g1 = Genre.create!(name: "Comedy")
+g2 = Genre.create!(name: "Drama")
+g3 = Genre.create!(name: "Action")
 
 Download.create!(user: u1, movie: m1)
 Download.create!(user: u2, movie: m2)
