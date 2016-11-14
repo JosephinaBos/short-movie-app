@@ -1,4 +1,7 @@
 class GenresController < ApplicationController
+
+  before_action :find_movie, only: [:edit, :update, :destroy]
+
   def index
     @genre = Genre.all
   end
@@ -31,7 +34,7 @@ class GenresController < ApplicationController
     params.require(:genres).permit(:name)
   end
 
-  def find_movie
-    @movie = Movie.find(params[:id])
+  def find_genre
+    @genre = Genre.find(params[:id])
   end
 end
