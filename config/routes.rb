@@ -1,17 +1,6 @@
 Rails.application.routes.draw do
-  get 'genres/index'
 
-  get 'genres/new'
-
-  get 'genres/create'
-
-  get 'genres/edit'
-
-  get 'genres/update'
-
-  get 'genres/destroy'
-
- devise_for :users,
+devise_for :users,
     controllers: {
       omniauth_callbacks: 'users/omniauth_callbacks',
       registrations: 'registrations' }
@@ -19,6 +8,7 @@ Rails.application.routes.draw do
   resources :movies do
     resources :wishlist_movies, only: [:index, :new, :create, :destroy]
     resources :downloads, only: [:index, :new, :create, :destroy]
+    resources :genres, except: :show
   end
 
   root to: 'movies#index'
