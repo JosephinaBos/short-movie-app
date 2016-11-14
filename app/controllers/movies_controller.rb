@@ -12,8 +12,8 @@ class MoviesController < ApplicationController
   end
 
   def new
-    authorize @movie
     @movie = Movie.new
+    authorize @movie
   end
 
   def create
