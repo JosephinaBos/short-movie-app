@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @movies = Movie.all
+    @movies = Movie.where("name ILIKE ? OR director ILIKE ?", "%params[:q]%", "%params[:q]%")
   end
 
   def show
