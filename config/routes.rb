@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'genres/index'
+
+  get 'genres/new'
+
+  get 'genres/create'
+
+  get 'genres/edit'
+
+  get 'genres/update'
+
+  get 'genres/destroy'
+
  devise_for :users,
     controllers: {
       omniauth_callbacks: 'users/omniauth_callbacks',

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111140954) do
+ActiveRecord::Schema.define(version: 20161114110505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.integer  "genre_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_categories_on_genre_id", using: :btree
+    t.index ["movie_id"], name: "index_categories_on_movie_id", using: :btree
+  end
 
   create_table "downloads", force: :cascade do |t|
     t.integer  "user_id"
@@ -24,11 +33,16 @@ ActiveRecord::Schema.define(version: 20161111140954) do
     t.index ["user_id"], name: "index_downloads_on_user_id", using: :btree
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string   "name"
     t.string   "director"
     t.integer  "duration"
-    t.string   "genre"
     t.string   "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,6 +82,8 @@ ActiveRecord::Schema.define(version: 20161111140954) do
     t.index ["user_id"], name: "index_wishlist_movies_on_user_id", using: :btree
   end
 
+  add_foreign_key "categories", "genres"
+  add_foreign_key "categories", "movies"
   add_foreign_key "downloads", "movies"
   add_foreign_key "downloads", "users"
   add_foreign_key "wishlist_movies", "movies"

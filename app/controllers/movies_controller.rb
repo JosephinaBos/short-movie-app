@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
-  authorize @movie
+    authorize @movie
   end
 
   def update
