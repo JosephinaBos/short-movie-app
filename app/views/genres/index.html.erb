@@ -1,0 +1,37 @@
+<h2>Genres</h2>
+
+<div class="genres-list">
+  <ul>
+    <% @genres.each do |genre| %>
+    <li>
+      <%= genre.name %>
+      <div class="btn-events">
+        <div class="btn btn-danger">
+          <%= link_to "Delete Genre", genre_path(genre), method: :delete %>
+        </div>
+      </div>
+      <div class="btn-events">
+  <div class="btn btn-danger">
+    <%= link_to "Edit Genre", edit_genre_path(genre) %>
+  </div>
+</div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="btn-events">
+  <div class="btn btn-danger">
+    <%= link_to "All Films", movies_path %>
+  </div>
+</div>
+
+<div class="btn-events">
+  <div class="btn btn-danger">
+    <%= link_to "Add Genre", new_genre_path %>
+  </div>
+</div>
+
+
+
+

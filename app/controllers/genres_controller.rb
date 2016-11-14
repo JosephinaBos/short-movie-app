@@ -1,9 +1,9 @@
 class GenresController < ApplicationController
 
-  before_action :find_movie, only: [:edit, :update, :destroy]
+  before_action :find_genre, only: [:edit, :update, :destroy]
 
   def index
-    @genre = Genre.all
+    @genres = Genre.all
   end
 
   def new
@@ -12,7 +12,7 @@ class GenresController < ApplicationController
 
   def create
     @genre = Genre.create(genre_params)
-    redirect_to genres_index_path
+    redirect_to genres_path
   end
 
   def edit
@@ -20,18 +20,18 @@ class GenresController < ApplicationController
 
   def update
     @genre.update(genre_params)
-    redirect_to genres_index_path
+    redirect_to genres_path
   end
 
   def destroy
     @genre.destroy
-    redirect_to genres_index_path
+    redirect_to genres_path
   end
 
   private
 
   def genre_params
-    params.require(:genres).permit(:name)
+    params.require(:genre).permit(:name)
   end
 
   def find_genre
